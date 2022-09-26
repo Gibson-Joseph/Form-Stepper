@@ -4,7 +4,7 @@ const Stepper = ({ stepper, setActive }: any) => {
   };
 
   return (
-    <div className="flex flex-row lg:flex-col h-screen items-center justify-center ">
+    <div className="flex flex-row lg:flex-col m-3 lg:h-screen items-center justify-center ">
       <button
         className={`w-8 h-8 rounded-full ${
           stepper >= 0 ? "bg-green-500" : "bg-gray-400 text-center"
