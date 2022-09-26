@@ -83,7 +83,7 @@ const Step2 = ({ err, valid }: any) => {
           </div>
         </div>
 
-        <div className="px-4 my-2 w-1/3">
+        <div className="px-4 my-2 lg:w-1/3">
           <label className="mr-5" htmlFor="gender">
             Gender
           </label>

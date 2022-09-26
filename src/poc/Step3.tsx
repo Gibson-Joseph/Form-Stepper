@@ -5,12 +5,12 @@ const Step3 = ({ err }: any) => {
   const { register, formState } = useFormContext();
 
   return (
-    <div className="p-8">
+    <div className="lg:p-8 w-full">
       <h1 className="text-center p-2 font-sans font-extrabold">
         Educational Details
       </h1>
       <div>
-        <div className="flex justify-between">
+        <div className="lg:flex justify-between">
           <div className="">
             <label htmlFor="course">Course</label>
             <select
@@ -25,7 +25,7 @@ const Step3 = ({ err }: any) => {
             </select>
           </div>
 
-          <div className=" ">
+          <div className="mt-3">
             <label htmlFor="course">College</label>
             <select
               {...register("college")}
@@ -40,13 +40,13 @@ const Step3 = ({ err }: any) => {
           </div>
         </div>
 
-        <div className="flex mt-8 justify-between">
-          <div className="flex">
+        <div className="lg:flex mt-8 justify-between">
+          <div className="lg:flex">
             <div className="flex flex-col">
               <label htmlFor="">Languages Known</label>
               <p className="text-sm text-red-500">{err.language?.message}</p>
             </div>
-            <div className="flex flex-col ml-3">
+            <div className="m-auto w-1/2 lg:w-full flex flex-col lg:ml-3 ">
               <label htmlFor="tamil">
                 <input
                   type="checkbox"
@@ -81,7 +81,7 @@ const Step3 = ({ err }: any) => {
               <input {...register("checked")} type="checkbox" id="more" /> Add
               More
             </label>
-            <textarea className="border" id="more"></textarea>
+            <textarea className="border my-3" id="more"></textarea>
           </div>
         </div>
       </div>

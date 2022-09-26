@@ -30,8 +30,6 @@ type FormValue = {
 const ContainerForm = () => {
   const state = useSelector((state: any) => state.form);
   const [popUp, setPopup] = useState(false);
-  const divRef = useRef(null);
-  console.log(divRef);
 
   const [formState, setFormState] = useState<FormValue>({
     firstName: state.firstName,
@@ -59,8 +57,6 @@ const ContainerForm = () => {
     reset,
     formState: { errors, isValid, isDirty, touchedFields },
   } = method;
-
-  console.log("isDirty", isDirty);
 
   const watchAllFIeld = watch();
   const dispatch = useDispatch();
@@ -115,12 +111,9 @@ const ContainerForm = () => {
   };
 
   return (
-    <div
-      ref={divRef}
-      className="h-screen lg:flex-row flex flex-col justify-center items-center relative"
-    >
+    <div className="h-screen lg:flex-row flex flex-col lg:justify-center lg:items-center relative">
       {popUp && (
-        <div className="absolute ml-20 border bg-slate-300 opacity-100 shadow-lg">
+        <div className="absolute border bg-slate-300 opacity-100 shadow-lg">
           <h1 className="font-bold m-3">
             please confirmed don't save the details
           </h1>
@@ -145,12 +138,13 @@ const ContainerForm = () => {
         <form
           action=""
           onSubmit={handleSubmit(onSubmit)}
-          className={`border ml-10 shadow-xl bg-white ${
-            state.activePage === 1 || (2 && "w-1/2")
-          } ${state.activePage === 0 && "w-1/3"} ${popUp && ""}`}
+          className={`border lg:ml-10 lg:shadow-xl bg-white ${
+            state.activePage === 1 || (2 && "lg:w-1/2")
+          } ${state.activePage === 0 && "lg:w-1/3"} ${popUp && ""}`}
           autoComplete="off"
         >
           <button
+            type="button"
             onClick={() => back()}
             className="border rounded-full mt-2 ml-2 inline hover:bg-red-100"
           >
