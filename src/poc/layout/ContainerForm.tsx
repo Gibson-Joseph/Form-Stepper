@@ -3,8 +3,11 @@ import { useForm, useFormContext, FormProvider } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { formPage } from "../../redux/actions/form/Form.action";
-import { addFormData } from "../../redux/actions/form/Form.action";
-
+import {
+  addFormData,
+  removeFormData,
+} from "../../redux/actions/form/Form.action";
+import { StateType } from "../../redux/model/State.type";
 import Step1 from "../Step1";
 import Step2 from "../Step2";
 import Step3 from "../Step3";
@@ -53,6 +56,7 @@ const ContainerForm = () => {
     handleSubmit,
     trigger,
     watch,
+    reset,
     formState: { errors, isValid, isDirty, touchedFields },
   } = method;
 
@@ -101,19 +105,16 @@ const ContainerForm = () => {
     navigate("/");
   };
 
-  const cancel = () => {
+  const Exit = () => {
+    reset(formState, { keepDefaultValues: true });
+    dispatch(removeFormData());
     navigate("/");
   };
   const edit = () => {
     setPopup(!popUp);
   };
 
-  const windowClick = () => {
-    setPopup(false);
-  };
   return (
-    // <div className="h-screen">
-
     <div
       ref={divRef}
       className="h-screen lg:flex-row flex flex-col justify-center items-center relative"
@@ -125,7 +126,7 @@ const ContainerForm = () => {
           </h1>
           <div className="flex justify-between m-3">
             <button
-              onClick={() => cancel()}
+              onClick={() => Exit()}
               className="border  px-6 py-1 bg-red-500"
             >
               Exit
@@ -196,7 +197,6 @@ const ContainerForm = () => {
         </form>
       </FormProvider>
     </div>
-    // </div>
   );
 };
 export default ContainerForm;

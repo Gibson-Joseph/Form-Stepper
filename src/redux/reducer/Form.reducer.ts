@@ -1,6 +1,11 @@
-import { ADD_FORM_DATA } from "../action-types/Form.types";
-import { FORM_PAGE } from "../action-types/Form.types";
-const INITIAL_STATE: any = {
+import {
+  ADD_FORM_DATA,
+  REMOVE_FORM_DATA,
+  FORM_PAGE,
+} from "../action-types/Form.types";
+import { StateType } from "../model/State.type";
+
+const INITIAL_STATE: StateType = {
   firstName: "",
   lastName: "",
   age: "",
@@ -41,6 +46,10 @@ function formReducer(state = INITIAL_STATE, action: any): any {
         checked: myPayload.checked,
         language: myPayload.language,
       };
+    }
+
+    case REMOVE_FORM_DATA: {
+      return INITIAL_STATE;
     }
 
     default:
