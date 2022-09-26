@@ -140,7 +140,7 @@ const ContainerForm = () => {
           onSubmit={handleSubmit(onSubmit)}
           className={`border lg:ml-10 lg:shadow-xl bg-white ${
             state.activePage === 1 || (2 && "lg:w-1/2")
-          } ${state.activePage === 0 && "lg:w-1/3"} ${popUp && ""}`}
+          } ${state.activePage === 0 && "lg:w-1/2"} ${popUp && ""}`}
           autoComplete="off"
         >
           <button
