@@ -28,7 +28,6 @@ function App() {
 
   return (
     <div className="h-screen bg-indigo-50">
-      {/* <ContainerForm /> */}
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Register />} />
